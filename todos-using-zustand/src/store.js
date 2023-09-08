@@ -15,10 +15,12 @@ const store = (set) => ({
       type: 3,
     },
   ],
-  addTask: (title, type) => {
+  addTask: ({ title, type }) => {
+    type = parseInt(type);
     set((state) => ({
       tasks: [...state.tasks, { title, type }],
     }));
+    console.log("Task Added");
   },
   isModalOpen: false,
   toggleModal: () => {
