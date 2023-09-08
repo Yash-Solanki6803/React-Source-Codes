@@ -1,0 +1,105 @@
+.modal {
+  position: absolute;
+  width: 300px;
+  height: 500px;
+  background-color: var(--GRAY-LIGHT);
+  border-radius: 10px;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px var(--BLACK);
+}
+
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 100px;
+  align-items: center;
+  height: 100%;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  margin: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+.close:hover {
+  font-size: 2rem;
+  box-shadow: 0 0 8px var(--GRAY-NORMAL);
+  background-color: var(--WHITE);
+}
+
+.task-input {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  text-shadow: 0 0 8px white;
+  font-size: 1.2rem;
+}
+
+.task-input .add-task-input {
+  all: unset;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: var(--WHITE);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px var(--GRAY-NORMAL);
+}
+
+.task-input input.add-task-input {
+  cursor: text;
+}
+
+.submit {
+  height: 100px;
+  border-top: 1px solid var(--GRAY-NORMAL);
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit .submit-btn {
+  height: 30px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: var(--BLACK);
+  color: var(--GRAY-LIGHT);
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.submit .submit-btn:hover {
+  background-color: var(--GRAY-LIGHT);
+  color: var(--BLACK);
+  box-shadow: 0 0 4px var(--BLACK);
+}
