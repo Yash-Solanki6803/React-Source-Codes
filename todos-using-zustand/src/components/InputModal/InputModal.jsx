@@ -1,9 +1,11 @@
-import './InputModal.css'
+import "./InputModal.css";
 
 const InputModal = () => {
   return (
-    <div>InputModal</div>
-  )
-}
+    <div className="input-wrapper">
+      <button className="input">Add Task</button>
+    </div>
+  );
+};
 
-export default InputModal
+export default InputModal;

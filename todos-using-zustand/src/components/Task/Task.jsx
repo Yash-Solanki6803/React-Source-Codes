@@ -1,12 +1,16 @@
+import { useStore } from "../../store";
 import "./Task.css";
 import PropTypes from "prop-types";
 
-const Task = ({ type }) => {
+const Task = ({ title }) => {
+  const task = useStore((store) =>
+    store.tasks.find((task) => task.title === title)
+  );
   const task_type = {
     color: "",
   };
 
-  switch (type) {
+  switch (task.type) {
     case 1: {
       task_type.color = "--PLANNED";
       break;
@@ -24,17 +28,19 @@ const Task = ({ type }) => {
       break;
   }
   return (
-    <div
-      className="task"
-      style={{ backgroundColor: `var(${task_type.color})` }}
-    >
-      Task
+    <div className="task">
+      <div
+        className="taskContent"
+        style={{ backgroundColor: `var(${task_type.color})` }}
+      >
+        {title}
+      </div>
     </div>
   );
 };
 
 Task.propTypes = {
-  type: PropTypes.number,
+  title: PropTypes.string,
 };
 
 export default Task;

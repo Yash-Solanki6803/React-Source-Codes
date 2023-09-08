@@ -1,39 +1,20 @@
-import "./HomePage.css";
-import { Search, Task } from "../../components";
+import "../../App.css";
+import { InputModal, Search, Task } from "../../components";
+import { useStore } from "../../store";
 
 const HomePage = () => {
+  const tasks = useStore((store) => store.tasks);
   return (
     <div className="container">
-      <Search />
-      <div className="homepage">
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
-        <Task type={1} />
+      <div className="row">
+        <Search />
+        <InputModal />
+      </div>
+      <div className="page">
+        {/* <Task type={3} /> */}
+        {tasks.map((task) => (
+          <Task key={task.title} title={task.title} />
+        ))}
       </div>
     </div>
   );

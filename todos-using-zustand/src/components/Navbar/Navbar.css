@@ -24,6 +24,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   z-index: 2;
+  animation: antiRotate 0.5s forwards;
 }
 
 .btn:hover {
@@ -43,7 +44,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  transition: all 1s;
+  transition: all 0.2s;
   transform: scale(0);
 
   position: absolute;
@@ -51,8 +52,9 @@
   animation: hide 0.5s forwards;
 }
 
-/* .navbar.active .navbar-icon {
-} */
+.btn.clicked {
+  animation: rotate 0.5s forwards;
+}
 
 .navbar.active .navbar-icon:nth-child(2) {
   animation: show 0.1s forwards;
@@ -95,5 +97,22 @@
 
   100% {
     transform: scale(0);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
+@keyframes antiRotate {
+  0% {
+    transform: rotate(315deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

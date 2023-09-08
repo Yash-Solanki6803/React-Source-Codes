@@ -10,7 +10,12 @@ const Navbar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
   return (
     <div className={`navbar ${menuClicked && "active"}`}>
-      <button className={"btn"} onClick={() => setMenuClicked(!menuClicked)}>
+      <button
+        className={`btn ${menuClicked && "clicked"}`}
+        onClick={() => {
+          setMenuClicked(!menuClicked);
+        }}
+      >
         <AiOutlinePlus />
       </button>
       <Link className="navbar-icon" to="/">
