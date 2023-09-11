@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 const store = (set) => ({
   tasks: [
@@ -15,6 +16,7 @@ const store = (set) => ({
       type: 3,
     },
   ],
+
   addTask: ({ title, type }) => {
     type = parseInt(type);
     set((state) => ({
@@ -22,6 +24,15 @@ const store = (set) => ({
     }));
     console.log("Task Added");
   },
+
+  deleteTask: (title) => {
+    console.log(title);
+    set((state) => ({
+      tasks: state.tasks.filter((task) => task.title !== title),
+    }));
+    console.log("Task Removed");
+  },
+
   isModalOpen: false,
   toggleModal: () => {
     set((state) => ({
@@ -30,4 +41,4 @@ const store = (set) => ({
   },
 });
 
-export const useStore = create(store);
+export const useStore = create(persist(store, { name: "state" }));

@@ -1,26 +1,29 @@
 import { useStore } from "../../store";
 import "./Task.css";
 import PropTypes from "prop-types";
+import { AiFillDelete } from "react-icons/ai";
 
 const Task = ({ title }) => {
   const task = useStore((store) =>
     store.tasks.find((task) => task.title === title)
   );
+
+  const deleteTask = useStore((store) => store.deleteTask);
   const task_type = {
-    color: "",
+    status: "",
   };
 
   switch (task.type) {
     case 1: {
-      task_type.color = "--PLANNED";
+      task_type.status = "PLANNED";
       break;
     }
     case 2: {
-      task_type.color = "--ONGOING";
+      task_type.status = "ONGOING";
       break;
     }
     case 3: {
-      task_type.color = "--DONE";
+      task_type.status = "DONE";
       break;
     }
 
@@ -29,11 +32,15 @@ const Task = ({ title }) => {
   }
   return (
     <div className="task">
+      <div className="close" onClick={() => deleteTask(title)}>
+        <AiFillDelete />
+      </div>
       <div
         className="taskContent"
-        style={{ backgroundColor: `var(${task_type.color})` }}
+        style={{ backgroundColor: `var(--${task_type.status})` }}
       >
-        {title}
+        <div className="task-title">{title}</div>
+        <div className="task-status">{task_type.status}</div>
       </div>
     </div>
   );

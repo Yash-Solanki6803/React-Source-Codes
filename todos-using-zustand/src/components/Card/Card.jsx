@@ -27,6 +27,7 @@ const Card = () => {
             name="task"
             id="task"
             placeholder="Fold clothes"
+            maxLength={20}
             value={task.title}
             onChange={(e) => {
               setTask({ ...task, title: e.target.value });
